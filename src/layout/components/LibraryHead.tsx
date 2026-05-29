@@ -1,7 +1,6 @@
 import { styled, Typography } from "@mui/material";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import AddIcon from "@mui/icons-material/Add";
-import Library from "./Library";
 import { NavLink } from "react-router";
 
 const StyledNavLink = styled(NavLink)(({ theme }) => ({
@@ -30,9 +29,6 @@ const LibraryHead = () => {
           <AddIcon style={{ display: "flex" }} />
         </Typography>
       </StyledNavLink>
-      <div>
-        <Library />
-      </div>
     </>
   );
 };
