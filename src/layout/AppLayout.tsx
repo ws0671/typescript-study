@@ -8,12 +8,13 @@ import Navbar from "./components/Navbar";
 const Layout = styled("div")({
   display: "flex",
   height: "100vh",
+  overflow: "hidden",
   padding: "8px",
 });
 const Sidebar = styled("div")(({ theme }) => ({
   width: "331px",
-  height: "100%",
   display: "flex",
+  height: "100%",
   flexDirection: "column",
   [theme.breakpoints.down("sm")]: {
     display: "none",
@@ -67,7 +68,14 @@ const AppLayout = () => {
         </ContentBox>
         <ContentBox>
           <LibraryHead />
-          <Library />
+          <Box
+            sx={{
+              height: "100vh",
+              overflowY: "auto",
+            }}
+          >
+            <Library />
+          </Box>
         </ContentBox>
       </Sidebar>
       <ContentBox>

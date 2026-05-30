@@ -1,13 +1,12 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, CircularProgress, Grid, Typography } from "@mui/material";
 import useGetNewReleases from "../../../hooks/useGetNewReleases";
 import ErrorMessage from "../../../common/components/ErrorMessage";
 import Card from "../../../layout/components/Card";
 
 const NewReleases = () => {
   const { data, error, isLoading } = useGetNewReleases();
-  console.log(data);
   if (isLoading) {
-    return "isloading...";
+    return <CircularProgress />;
   }
   if (error) {
     return <ErrorMessage errorMessage={error.message} />;

@@ -6,14 +6,13 @@ export const getNewReleases = async (
 ): Promise<GetNewReleasesResponse> => {
   try {
     const response = await axios.get(
-      `${SPOTIFY_BASE_URL}/browse/new-releases`,
+      `${SPOTIFY_BASE_URL}/browse/new-releases?limit=6`,
       {
         headers: {
           Authorization: `Bearer ${clientCredentialToken}`,
         },
       },
     );
-    console.log("ddd:", response.data);
 
     return response.data;
   } catch (error) {
