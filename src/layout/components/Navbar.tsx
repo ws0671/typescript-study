@@ -60,7 +60,7 @@ const Navbar = () => {
               <img
                 src="/images/default profile2.png"
                 alt="default profile"
-                style={{ width: 40, borderRadius: "50%" }}
+                style={{ width: 30, borderRadius: "50%" }}
               />
             </IconButton>
             <ProfileMenu

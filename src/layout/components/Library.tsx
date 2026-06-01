@@ -1,4 +1,4 @@
-import { CircularProgress, styled } from "@mui/material";
+import { styled } from "@mui/material";
 import useGetCurrentUserPlaylists from "../../hooks/useGetCurrentUserPlaylists";
 import EmptyPlaylist from "./EmptyPlaylist";
 import useGetCurrentUserProfile from "../../hooks/useGetCurrentUserProfile";
