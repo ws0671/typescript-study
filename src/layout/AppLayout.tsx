@@ -15,6 +15,7 @@ const Sidebar = styled("div")(({ theme }) => ({
   width: "331px",
   display: "flex",
   height: "100%",
+
   flexDirection: "column",
   [theme.breakpoints.down("sm")]: {
     display: "none",
@@ -68,14 +69,8 @@ const AppLayout = () => {
         </ContentBox>
         <ContentBox>
           <LibraryHead />
-          <Box
-            sx={{
-              height: "100vh",
-              overflowY: "auto",
-            }}
-          >
-            <Library />
-          </Box>
+
+          <Library />
         </ContentBox>
       </Sidebar>
       <ContentBox>

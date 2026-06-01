@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/material";
+import { CircularProgress, styled } from "@mui/material";
 import useGetCurrentUserPlaylists from "../../hooks/useGetCurrentUserPlaylists";
 import EmptyPlaylist from "./EmptyPlaylist";
 import useGetCurrentUserProfile from "../../hooks/useGetCurrentUserProfile";
@@ -9,7 +9,19 @@ const MarginSpan = styled("span")({
   marginRight: "5px",
   marginLeft: "5px",
 });
-
+const PlaylistContainer = styled("div")(({ theme }) => ({
+  overflowY: "auto",
+  maxHeight: "calc(100vh - 140px)",
+  height: "100%",
+  "&::-webkit-scrollbar": {
+    display: "none",
+    msOverflowStyle: "none", // IE and Edge
+    scrollbarWidth: "none", // Firefox
+  },
+  [theme.breakpoints.down("sm")]: {
+    maxHeight: "calc(100vh - 65px - 119px)",
+  },
+}));
 const Library = () => {
   const { ref, inView } = useInView();
   const {
@@ -23,7 +35,6 @@ const Library = () => {
   });
   const { data: user } = useGetCurrentUserProfile();
   useEffect(() => {
-    console.log("inView:", inView);
     if (inView && hasNextPage && !isFetchingNextPage) {
       fetchNextPage();
     }
@@ -31,16 +42,16 @@ const Library = () => {
   if (!user) return <EmptyPlaylist />;
 
   return (
-    <Box>
+    <PlaylistContainer>
       {userPlaylist ? (
         userPlaylist?.pages.map((page) =>
-          page.items.map((item, index) => (
+          page.items.map((item) => (
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop: index === 0 ? 20 : 6,
+                marginTop: 6,
               }}
               key={item.id}
             >
@@ -76,8 +87,8 @@ const Library = () => {
       ) : (
         <EmptyPlaylist />
       )}
-      <div ref={ref}>endddddddddddddddddddddd</div>
-    </Box>
+      <div ref={ref}></div>
+    </PlaylistContainer>
   );
 };
 
