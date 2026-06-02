@@ -53,14 +53,17 @@ const Navbar = () => {
     >
       {userProfile ? (
         userProfile.images[0] ? (
-          <img src={userProfile.images[0]?.url} />
+          <img
+            src={userProfile.images[0]?.url}
+            style={{ width: 40, borderRadius: "50%" }}
+          />
         ) : (
           <ProfileContainer>
             <IconButton onClick={handleMenuOpen} size="small">
               <img
                 src="/images/default profile2.png"
                 alt="default profile"
-                style={{ width: 30, borderRadius: "50%" }}
+                style={{ width: 40, borderRadius: "50%" }}
               />
             </IconButton>
             <ProfileMenu
